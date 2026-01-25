@@ -26,6 +26,8 @@
             border-radius: 22%; /* iOS Squircle */
             object-fit: cover;
             display: inline-block;
+            
+            /* Smooth Transition Logic */
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-origin: center;
             position: relative;
@@ -48,31 +50,19 @@
             margin-bottom: 10px;
             letter-spacing: -0.02em;
             color: #000000;
-            min-height: 1.8rem; /* Prevents layout jump */
-            display: flex;
-            align-items: center;
+            min-height: 1.8rem; /* Prevents layout jump while typing */
         }
 
         /* Typing Animation Elements */
         #cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2rem;
-            background-color: #000000;
-            margin-left: 4px;
-            /* Faster, snappier blink for authenticity */
-            animation: blink 0.8s step-end infinite;
+            font-weight: 400;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
         }
 
         @keyframes blink {
-            from, to { opacity: 1 }
-            50% { opacity: 0 }
-        }
-
-        /* Fade out class for the cursor */
-        .cursor-fade {
-            transition: opacity 0.5s ease-out;
-            opacity: 0 !important;
+            from, to { color: transparent }
+            50% { color: #000000 }
         }
 
         .subtitle {
@@ -142,7 +132,7 @@
 </head>
 <body>
 
-    <h1><span id="text-target">...</span><span id="cursor"></span></h1>
+    <h1 id="typewriter">...</h1>
     <p class="subtitle">side projects below were solo, no funding</p>
 
     <h2>projects</h2>
@@ -188,34 +178,33 @@
     </ul>
 
     <script>
-        const textToType = "hi, I'm Giorgio";
-        const textTarget = document.getElementById('text-target');
-        const cursor = document.getElementById('cursor');
-        let index = 0;
+        const text = "hi, I'm Giorgio";
+        const target = document.getElementById('typewriter');
+        let i = 0;
 
-        // 1. Initial "Thinking" delay (1.2 seconds)
+        // 1. Extended "Thinking" state to exactly 1 second
         setTimeout(() => {
-            textTarget.innerHTML = ''; 
+            target.innerHTML = ''; 
             typeWriter();
-        }, 1200);
+        }, 1000);
 
         function typeWriter() {
-            if (index < textToType.length) {
-                textTarget.innerHTML += textToType.charAt(index);
-                index++;
-                
-                // Authentic typing speed variance:
-                // Fast for most letters, slight pause for the comma and space
-                let char = textToType.charAt(index - 1);
-                let baseSpeed = (char === ',' || char === ' ') ? 250 : 60;
-                let randomVariance = Math.random() * 80;
-                
-                setTimeout(typeWriter, baseSpeed + randomVariance);
+            if (i < text.length) {
+                target.innerHTML += text.charAt(i);
+                i++;
+                let speed = Math.floor(Math.random() * 50) + 50; 
+                setTimeout(typeWriter, speed);
             } else {
-                // Done typing: Let the cursor blink 4 times then fade out
+                // 2. Add cursor
+                target.innerHTML += '<span id="cursor">|</span>';
+                
+                // 3. Logic to remove cursor after exactly 5 blinks (5 seconds)
+                const cursorElement = document.getElementById('cursor');
                 setTimeout(() => {
-                    cursor.classList.add('cursor-fade');
-                }, 3200); // 3200ms = roughly 4 blinks at 0.8s intervals
+                    if (cursorElement) {
+                        cursorElement.style.display = 'none';
+                    }
+                }, 5000); 
             }
         }
     </script>
