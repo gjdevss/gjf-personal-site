@@ -10,7 +10,7 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #666666; 
-            background-color: #ffffff;
+            background-color: #F9F7F2; /* Subtle Off-White/Cream */
             margin: 0;
             padding: 40px 60px 100px 60px;
             max-width: 900px;
@@ -52,6 +52,10 @@
         #cursor {
             font-weight: 400;
             margin-left: 2px;
+        }
+
+        /* The cursor blinks by default */
+        .blinking {
             animation: blink 1s step-end infinite;
         }
 
@@ -121,7 +125,7 @@
 </head>
 <body>
 
-    <h1 id="typewriter"><span id="text-content"></span><span id="cursor">|</span></h1>
+    <h1 id="typewriter"><span id="text-content"></span><span id="cursor" class="blinking">|</span></h1>
     <p class="subtitle">side projects below were solo, no funding</p>
 
     <h2>projects</h2>
@@ -170,10 +174,12 @@
         const cursorElement = document.getElementById('cursor');
         let i = 0;
 
-        // Start typing after the cursor blinks on its own for 800ms
+        // 1. Initial 2 blinks (2000ms) before typing
         setTimeout(() => {
+            // Remove blinking class while typing so it stays idle/solid
+            cursorElement.classList.remove('blinking');
             typeWriter();
-        }, 800);
+        }, 2000);
 
         function typeWriter() {
             if (i < textToType.length) {
@@ -186,12 +192,15 @@
                 i++;
                 setTimeout(typeWriter, baseSpeed + variance);
             } else {
-                // Remove cursor after exactly 8 blinks (8 seconds total)
+                // 2. Typing finished: start blinking again
+                cursorElement.classList.add('blinking');
+
+                // 3. Remove cursor after exactly 7 more blinks (7000ms)
                 setTimeout(() => {
                     if (cursorElement) {
                         cursorElement.style.display = 'none';
                     }
-                }, 8000); 
+                }, 7000); 
             }
         }
     </script>
