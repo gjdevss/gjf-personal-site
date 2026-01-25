@@ -10,19 +10,21 @@
             /* Using Mac-native system fonts for that clean developer look */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
+            color: #666666; /* Softer Secondary Color as default */
             background-color: #ffffff;
             margin: 0;
             padding: 40px 60px 100px 60px;
             max-width: 900px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Intro Section */
+        /* Intro Section - Bold Black */
         h1 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 10px;
             letter-spacing: -0.02em;
+            color: #000000;
         }
 
         .subtitle {
@@ -31,7 +33,7 @@
             margin-bottom: 60px;
         }
 
-        /* Section Titles - The primary bold anchors */
+        /* Section Titles - Bold Black */
         h2 {
             font-size: 1.3rem;
             font-weight: 700;
@@ -50,9 +52,9 @@
             margin-bottom: 45px;
         }
 
-        /* Item Titles - Now unbolded to match reference hierarchy */
+        /* Item Titles - Soft color */
         .item-title {
-            color: #333333;
+            color: #666666;
             font-weight: 400;
             font-size: 1.1rem;
             display: block;
@@ -65,12 +67,12 @@
             text-decoration: underline;
         }
 
-        /* Detail lists - Descriptions now have empty bullets */
+        /* Detail lists - Descriptions now have empty bullets and soft color */
         .details {
             list-style-type: circle;
             margin-top: 8px;
             padding-left: 20px;
-            color: #555555;
+            color: #666666;
             font-size: 1.05rem;
         }
 
@@ -78,11 +80,17 @@
             margin-bottom: 10px;
         }
 
-        /* Generic text sections (Life Goal) */
+        /* Generic text sections (Life Goal) - Soft color */
         .text-content {
             font-size: 1.05rem;
-            color: #444444;
+            color: #666666;
             max-width: 700px;
+        }
+
+        /* Connect alignment fix */
+        .no-indent {
+            list-style-type: none;
+            padding-left: 0;
         }
 
         a:hover {
@@ -125,8 +133,8 @@
     </div>
 
     <h2>connect</h2>
-    <ul>
-        <li class="item-container" style="list-style-type: none;">
+    <ul class="no-indent">
+        <li class="item-container">
             <div class="text-content">
                 email: <a href="mailto:giorgiojferretti@gmail.com" class="blue-link">giorgiojferretti@gmail.com</a>
             </div>
