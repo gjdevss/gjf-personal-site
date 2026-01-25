@@ -7,110 +7,107 @@
     <style>
         /* Typography & Reset */
         body {
-            /* Prioritize Mac-native fonts */
+            /* Native Mac font stack */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6; /* slightly increased line-height for breathing room */
+            line-height: 1.7; 
             color: #000000;
             background-color: #ffffff;
             margin: 0;
-            /* Increased top/bottom padding for more overall spacing */
-            padding: 100px 40px;
-            max-width: 800px;
+            /* High padding for max breathing room */
+            padding: 120px 60px;
+            max-width: 900px;
         }
 
-        /* Minimalist Headings - Lowercase like the example */
+        /* Headings - lowercase and minimalist */
         h1 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            /* Increased spacing below h1 */
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
-            /* Increased spacing above and below h2 */
-            margin-top: 60px;
-            margin-bottom: 24px;
+            margin-top: 80px;
+            margin-bottom: 30px;
         }
 
-        /* Sub-navigation/Intro text */
         .subtitle {
             color: #666666;
-            font-size: 0.95rem;
-            /* Increased spacing below subtitle */
-            margin-bottom: 48px;
+            font-size: 1rem;
+            margin-bottom: 60px;
         }
 
-        /* List Styling */
         ul {
-            list-style-type: none; /* Removes default bullets for the main list */
+            list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
         .project-item {
-            /* Increased spacing between project items */
-            margin-bottom: 40px;
+            /* Large vertical spacing between projects */
+            margin-bottom: 50px;
         }
 
-        .project-link {
-            /* Changed color to a standard blue to match the reference */
+        /* Black text for project headers to match example */
+        .project-name {
+            color: #000000;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Specific Blue for the actual links */
+        .blue-link {
             color: #0000EE;
             text-decoration: underline;
-            font-weight: 500;
         }
 
-        /* Nested Bullets for Details */
+        /* Detail lists - simplified and spacious */
         .details {
             list-style-type: disc;
-            /* Increased spacing between project title and details list */
-            margin-top: 12px;
-            padding-left: 24px; /* slightly more indentation */
+            margin-top: 15px;
+            padding-left: 20px;
             color: #555555;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         .details li {
-            /* Increased spacing between bullet points */
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
-        /* Link Hover State - kept for better UX */
         a:hover {
-            color: #0055ff;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
 
-    <h1>hi, i'm Giorgio</h1>
+    <h1>hi, i'm giorgio</h1>
     
     <p class="subtitle">
-        projects below were solo, no funding 
+        side projects below were solo, no funding 
     </p>
 
     <h2>projects</h2>
 
     <ul>
         <li class="project-item">
-            <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank" class="project-link">Voky AI: Master Speaking — ios app</a>
+            <span class="project-name">voky ai — ios app</span>
             <ul class="details">
-                <li>designed and engineered a native ios app that helps users improve their speaking skills</li>
-                <li>leverages ai to analyze speech patterns and provide personalized improvement plans and coaching</li>
-                <li>currently in private beta via <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank" style="color: inherit;">testflight</a> (apple review pending)</li>
+                <li>built an ios app for speaking skills and confidence</li>
+                <li>uses ai to analyze speech and provide coaching plans</li>
+                <li>currently in private beta via <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank" class="blue-link">testflight</a></li>
             </ul>
         </li>
 
         <li class="project-item">
-            <a href="#" class="project-link">content ecosystem & digital business</a>
+            <span class="project-name">content ecosystem & digital business</span>
             <ul class="details">
-                <li>built and managed a profitable media business across youtube, instagram, and tiktok</li>
-                <li>reached 500k+ subscribers and generated six-figure revenue through data-driven and viewer-first content strategy</li>
-                <li>designed high-performance visual assets and branding to optimize user engagement</li>
-                <li>exited the operation in 2025 to focus on newer engineering and design projects</li>
-                <li>a couple of said channels: <a href="https://www.youtube.com/@MotivationMentors/videos" target="_blank" style="color: inherit;">motivation mentors</a>, <a href="https://www.youtube.com/@kickverse/videos" target="_blank" style="color: inherit;">kick verse</a></li>
+                <li>scaled a profitable media business across youtube, ig, and tiktok</li>
+                <li>reached 500k+ subscribers with six-figure revenue</li>
+                <li>exited in 2025 to focus on engineering and design</li>
+                <li>a couple of said channels: <a href="https://www.youtube.com/@MotivationMentors/videos" target="_blank" class="blue-link">motivation mentors</a>, <a href="https://www.youtube.com/@kickverse/videos" target="_blank" class="blue-link">kickverse</a></li>
             </ul>
         </li>
     </ul>
