@@ -37,7 +37,7 @@
         /* Hover Effect - Desktop Only */
         @media (hover: hover) and (pointer: fine) {
             .project-icon:hover {
-                transform: scale(3.5); /* 5x enlargement */
+                transform: scale(3.5); /* 3.5x enlargement */
                 z-index: 10; /* Ensures the enlarged icon stays on top of text */
                 cursor: pointer;
             }
@@ -50,6 +50,19 @@
             margin-bottom: 10px;
             letter-spacing: -0.02em;
             color: #000000;
+            min-height: 1.8rem; /* Prevents layout jump while typing */
+        }
+
+        /* Typing Animation Elements */
+        #cursor {
+            font-weight: 400;
+            margin-left: 2px;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: #000000 }
         }
 
         .subtitle {
@@ -119,7 +132,7 @@
 </head>
 <body>
 
-    <h1>hi, I'm Giorgio</h1>
+    <h1 id="typewriter">...</h1>
     <p class="subtitle">side projects below were solo, no funding</p>
 
     <h2>projects</h2>
@@ -163,6 +176,32 @@
             </div>
         </li>
     </ul>
+
+    <script>
+        const text = "hi, I'm Giorgio";
+        const target = document.getElementById('typewriter');
+        let i = 0;
+
+        // 1. Start with the "Thinking" state (3 dots)
+        // 2. Wait 800ms to feel like a "reaction" to the user loading the page
+        setTimeout(() => {
+            target.innerHTML = ''; // Clear the dots
+            typeWriter();
+        }, 800);
+
+        function typeWriter() {
+            if (i < text.length) {
+                target.innerHTML += text.charAt(i);
+                i++;
+                // Randomize speed slightly to feel like a human typing
+                let speed = Math.floor(Math.random() * 50) + 50; 
+                setTimeout(typeWriter, speed);
+            } else {
+                // Add the blinking cursor only after it's done typing
+                target.innerHTML += '<span id="cursor">|</span>';
+            }
+        }
+    </script>
 
 </body>
 </html>
