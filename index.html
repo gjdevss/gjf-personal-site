@@ -23,7 +23,7 @@
             width: 1.1rem;
             vertical-align: text-bottom;
             margin-left: 6px;
-            border-radius: 22%; /* iOS Squircle */
+            border-radius: 22%;
             object-fit: cover;
             display: inline-block;
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -32,7 +32,6 @@
             z-index: 1;
         }
 
-        /* Hover Effect - Desktop Only */
         @media (hover: hover) and (pointer: fine) {
             .project-icon:hover {
                 transform: scale(3.5); 
@@ -41,7 +40,6 @@
             }
         }
 
-        /* Titles & Hierarchy */
         h1 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -51,7 +49,6 @@
             min-height: 1.8rem;
         }
 
-        /* Typing Animation Elements */
         #cursor {
             font-weight: 400;
             margin-left: 2px;
@@ -83,9 +80,7 @@
             margin: 0;
         }
 
-        .item-container {
-            margin-bottom: 45px;
-        }
+        .item-container { margin-bottom: 45px; }
 
         .item-title {
             color: #666666;
@@ -108,9 +103,7 @@
             font-size: 1.05rem;
         }
 
-        .details li {
-            margin-bottom: 10px;
-        }
+        .details li { margin-bottom: 10px; }
 
         .text-content {
             font-size: 1.05rem;
@@ -123,18 +116,15 @@
             padding-left: 0;
         }
 
-        a:hover {
-            opacity: 0.7;
-        }
+        a:hover { opacity: 0.7; }
     </style>
 </head>
 <body>
 
-    <h1 id="typewriter">...</h1>
+    <h1 id="typewriter"><span id="text-content"></span><span id="cursor">|</span></h1>
     <p class="subtitle">side projects below were solo, no funding</p>
 
     <h2>projects</h2>
-
     <ul>
         <li class="item-container">
             <span class="item-title">voky ai - master speaking (ios app) <img src="voky-logo.png" class="project-icon" alt="voky logo"></span>
@@ -144,7 +134,6 @@
                 <li>currently in beta via <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank" class="blue-link">testflight</a> (apple review pending)</li>
             </ul>
         </li>
-
         <li class="item-container">
             <span class="item-title">media & content business 
                 <img src="https://cdn.simpleicons.org/youtube/FF0000" class="project-icon" alt="yt"> 
@@ -177,21 +166,19 @@
 
     <script>
         const textToType = "hi, I'm Giorgio";
-        const target = document.getElementById('typewriter');
+        const textTarget = document.getElementById('text-content');
+        const cursorElement = document.getElementById('cursor');
         let i = 0;
 
-        // 1. Reverted "Thinking" state to 800ms
+        // Start typing after the cursor blinks on its own for 800ms
         setTimeout(() => {
-            target.innerHTML = ''; 
             typeWriter();
         }, 800);
 
         function typeWriter() {
             if (i < textToType.length) {
-                target.innerHTML += textToType.charAt(i);
+                textTarget.innerHTML += textToType.charAt(i);
                 
-                // 2. Authenticity Logic:
-                // We slow down slightly for the comma and space, but keep letters fast.
                 let char = textToType.charAt(i);
                 let baseSpeed = (char === ',' || char === ' ') ? 180 : 55;
                 let variance = Math.random() * 60;
@@ -199,11 +186,7 @@
                 i++;
                 setTimeout(typeWriter, baseSpeed + variance);
             } else {
-                // 3. Add cursor after typing
-                target.innerHTML += '<span id="cursor">|</span>';
-                
-                // 4. Set to exactly 8 blinks (8 seconds)
-                const cursorElement = document.getElementById('cursor');
+                // Remove cursor after exactly 8 blinks (8 seconds total)
                 setTimeout(() => {
                     if (cursorElement) {
                         cursorElement.style.display = 'none';
