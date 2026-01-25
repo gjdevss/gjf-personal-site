@@ -5,128 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Giorgio J. Ferretti</title>
     <style>
-        /* Typography & Core Reset */
+        /* Typography & Reset */
         body {
-            /* SF Pro / System fonts are the most readable on Mac */
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            /* Using Mac-native system fonts for that clean developer look */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #000000;
+            color: #1a1a1a;
             background-color: #ffffff;
             margin: 0;
             padding: 40px 60px 100px 60px;
-            max-width: 850px;
-            -webkit-font-smoothing: antialiased; /* Makes font appear "softer" */
+            max-width: 900px;
         }
 
+        /* Intro Section */
         h1 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
 
         .subtitle {
-            color: #666666; /* Secondary Color */
-            font-size: 1rem;
-            margin-bottom: 50px;
-        }
-
-        h2 {
+            color: #666666;
             font-size: 1.1rem;
-            font-weight: 700;
-            margin-top: 50px;
-            margin-bottom: 20px;
+            margin-bottom: 60px;
         }
 
-        /* The Bullet Point System */
+        /* Section Titles - The primary bold anchors */
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: #000000;
+        }
+
         ul {
-            list-style-type: disc; /* Filled bullets for main items */
-            padding-left: 20px;
+            list-style-type: none;
+            padding: 0;
             margin: 0;
         }
 
-        .nested-list {
-            list-style-type: circle; /* "Empty" bullets for details */
-            padding-left: 25px;
-            margin-top: 8px;
-            color: #666666; /* Secondary Color for all details */
+        .item-container {
+            margin-bottom: 45px;
         }
 
-        li {
-            margin-bottom: 12px;
-            font-size: 1rem;
+        /* Item Titles - Now unbolded to match reference hierarchy */
+        .item-title {
+            color: #333333;
+            font-weight: 400;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
         }
 
-        .nested-list li {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        /* Link Styling */
-        a {
+        /* Links - Blue and underlined */
+        .blue-link {
             color: #0000EE;
             text-decoration: underline;
+        }
+
+        /* Detail lists - Circle/Disc bullets from reference */
+        .details {
+            list-style-type: disc;
+            margin-top: 8px;
+            padding-left: 20px;
+            color: #555555;
+            font-size: 1.05rem;
+        }
+
+        .details li {
+            margin-bottom: 10px;
+        }
+
+        /* Generic text sections (Life Goal) */
+        .text-content {
+            font-size: 1.05rem;
+            color: #444444;
+            max-width: 700px;
         }
 
         a:hover {
             opacity: 0.7;
         }
-
-        /* Plain Text Sections */
-        .paragraph {
-            font-size: 1rem;
-            color: #000000;
-            max-width: 750px;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>
 
-    <h1>hi, i'm Giorgio</h1>
+    <h1>hi, i'm giorgio</h1>
     <p class="subtitle">side projects below were solo, no funding</p>
 
     <h2>projects</h2>
 
     <ul>
-        <li>
-            voky ai - master speaking (ios app)
-            <ul class="nested-list">
+        <li class="item-container">
+            <span class="item-title">voky ai - master speaking (ios app)</span>
+            <ul class="details">
                 <li>designed and engineered a native ios app that helps users improve their speaking skills & eloquence</li>
                 <li>leverages ai to analyze speech patterns and provide personalized improvement plans and coaching</li>
-                <li>currently in beta via <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank">testflight</a> (apple review pending)</li>
+                <li>currently in beta via <a href="https://testflight.apple.com/join/AKFp9jXT" target="_blank" class="blue-link">testflight</a> (apple review pending)</li>
             </ul>
         </li>
 
-        <li>
-            media & content business
-            <ul class="nested-list">
+        <li class="item-container">
+            <span class="item-title">media & content business</span>
+            <ul class="details">
                 <li>built and scaled a profitable media business reaching 500k+ subscribers across youtube, instagram, and tiktok</li>
                 <li>generated six-figure revenue through data-driven content systems and brand design</li>
                 <li>successfully exited the operation via acquisition in 2025 to focus on new projects</li>
-                <li>featured channels: <a href="https://www.youtube.com/@MotivationMentors/videos" target="_blank">motivation mentors</a>, <a href="https://www.youtube.com/@kickverse/videos" target="_blank">kickverse</a></li>
-                <li>also co-founded one of italy's largest motivational pages on instagram (Più Saggezza - now re-branded), which was successfully acquired</li>
+                <li>featured channels: <a href="https://www.youtube.com/@MotivationMentors/videos" target="_blank" class="blue-link">motivation mentors</a>, <a href="https://www.youtube.com/@kickverse/videos" target="_blank" class="blue-link">kickverse</a></li>
+                <li>also co-founded one of italy's largest motivational pages on instagram, which was successfully acquired (Più Saggezza - now re-branded)</li>
             </ul>
         </li>
     </ul>
 
     <h2>life goal</h2>
-    <ul>
-        <li>
-            i want to build software that facilitates better human connection and communication at scale.
-        </li>
-        <li>
-            i'm a huge fan of products that bridge the gap between technology and personal growth.
-        </li>
-    </ul>
+    <div class="text-content">
+        i want to build software that facilitates better human connection and communication at scale. i'm a huge fan of products that bridge the gap between technology and personal growth.
+    </div>
 
     <h2>connect</h2>
     <ul>
-        <li>
-            i yap a lot on <a href="https://instagram.com/yourhandle" target="_blank">IG</a>
+        <li class="item-container">
+            <div class="text-content">
+                i yap a lot on <a href="https://instagram.com/yourhandle" target="_blank" class="blue-link">IG</a>
+            </div>
         </li>
-        <li>
-            i troll on <a href="https://x.com/yourhandle" target="_blank">X</a>
+        <li class="item-container" style="margin-top: -30px;">
+            <div class="text-content">
+                i troll on <a href="https://x.com/yourhandle" target="_blank" class="blue-link">X</a>
+            </div>
         </li>
     </ul>
 
