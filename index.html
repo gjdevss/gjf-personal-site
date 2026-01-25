@@ -30,14 +30,22 @@
             transform-origin: center;
             position: relative;
             z-index: 1;
+            -webkit-tap-highlight-color: transparent; /* Clean tap for mobile */
         }
 
+        /* Desktop Hover - Remains Unchanged */
         @media (hover: hover) and (pointer: fine) {
             .project-icon:hover {
                 transform: scale(3.5); 
                 z-index: 10; 
                 cursor: pointer;
             }
+        }
+
+        /* Mobile Active State - Triggered by JS */
+        .project-icon.is-active {
+            transform: scale(2.2); /* Optimized for small screens */
+            z-index: 10;
         }
 
         h1 {
@@ -54,7 +62,6 @@
             margin-left: 2px;
         }
 
-        /* The cursor blinks by default */
         .blinking {
             animation: blink 1s step-end infinite;
         }
@@ -146,7 +153,7 @@
             </span>
             <ul class="details">
                 <li>built and scaled a profitable media business reaching 500k+ subscribers across youtube, instagram, and tiktok</li>
-                <li>generated six-figure revenue through data-driven and viewer-first content systems and brand design</li>
+                <li>generated 6-figure revenue through data-driven and viewer-first content systems and brand design</li>
                 <li>successfully exited the operation via acquisition in 2025 to focus on new projects</li>
                 <li>some featured channels: <a href="https://www.youtube.com/@MotivationMentors/videos" target="_blank" class="blue-link">motivation mentors</a>, <a href="https://www.youtube.com/@kickverse/videos" target="_blank" class="blue-link">kickverse</a></li>
                 <li>also co-founded one of italy's largest motivational pages on instagram, which was successfully acquired (Più Saggezza - now re-branded)</li>
@@ -169,12 +176,12 @@
     </ul>
 
     <script>
+        // --- TYPEWRITER LOGIC ---
         const textToType = "hi, I'm Giorgio";
         const textTarget = document.getElementById('text-content');
         const cursorElement = document.getElementById('cursor');
         let i = 0;
 
-        // 1. Initial 2 blinks (2000ms) before typing
         setTimeout(() => {
             cursorElement.classList.remove('blinking');
             typeWriter();
@@ -183,25 +190,40 @@
         function typeWriter() {
             if (i < textToType.length) {
                 textTarget.innerHTML += textToType.charAt(i);
-                
                 let char = textToType.charAt(i);
                 let baseSpeed = (char === ',' || char === ' ') ? 180 : 55;
                 let variance = Math.random() * 60;
-                
                 i++;
                 setTimeout(typeWriter, baseSpeed + variance);
             } else {
-                // 2. Typing finished: start blinking again
                 cursorElement.classList.add('blinking');
-
-                // 3. Remove cursor after exactly 7 more blinks (7000ms)
+                // Clean exit after 3 blinks
                 setTimeout(() => {
-                    if (cursorElement) {
-                        cursorElement.style.display = 'none';
-                    }
-                }, 5000); 
+                    if (cursorElement) cursorElement.style.display = 'none';
+                }, 3000); 
             }
         }
+
+        // --- MOBILE ICON ENLARGE LOGIC ---
+        const icons = document.querySelectorAll('.project-icon');
+        
+        icons.forEach(icon => {
+            icon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // If it's already active, shrink it. If not, grow it.
+                if (icon.classList.contains('is-active')) {
+                    icon.classList.remove('is-active');
+                } else {
+                    icons.forEach(i => i.classList.remove('is-active')); // Close others
+                    icon.classList.add('is-active');
+                }
+            });
+        });
+
+        // Shrink icons on scroll or tap away
+        const resetIcons = () => icons.forEach(i => i.classList.remove('is-active'));
+        document.addEventListener('click', resetIcons);
+        window.addEventListener('scroll', resetIcons);
     </script>
 
 </body>
