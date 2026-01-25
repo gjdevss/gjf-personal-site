@@ -3,84 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
+    <title>Portfolio - Giorgio J. Ferretti</title>
     <style>
-        /* This CSS mimics the minimalist style in the screenshot */
+        /* Typography & Reset */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 80px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            color: #000000;
             background-color: #ffffff;
+            /* This ensures the content stays on the left but isn't touching the screen edge */
+            margin: 0;
+            padding: 60px 40px;
+            max-width: 800px;
         }
 
-        h1, h2, h3 {
+        /* Minimalist Headings - Lowercase like the example */
+        h1 {
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.5em;
+            margin-bottom: 24px;
             letter-spacing: -0.02em;
         }
 
-        .intro-sub {
-            color: #666;
-            margin-bottom: 2em;
+        h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 16px;
         }
 
+        /* Sub-navigation/Intro text */
+        .subtitle {
+            color: #666666;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        /* List Styling */
         ul {
-            list-style-type: disc;
-            padding-left: 20px;
+            list-style-type: none; /* Removes default bullets for the main list */
+            padding: 0;
+            margin: 0;
         }
 
-        li {
-            margin-bottom: 1.5em;
+        .project-item {
+            margin-bottom: 28px;
         }
 
-        .project-details {
-            list-style-type: circle;
-            margin-top: 0.5em;
-            color: #444;
-        }
-
-        .project-details li {
-            margin-bottom: 0.2em;
-        }
-
-        a {
-            color: #0000EE;
-            text-decoration: none;
-        }
-
-        a:hover {
+        .project-link {
+            color: #1a1a1a;
             text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Nested Bullets for Details */
+        .details {
+            list-style-type: disc;
+            margin-top: 8px;
+            padding-left: 18px;
+            color: #555555;
+            font-size: 0.9rem;
+        }
+
+        .details li {
+            margin-bottom: 4px;
+        }
+
+        /* Link Hover State */
+        a:hover {
+            color: #0055ff;
         }
     </style>
 </head>
 <body>
 
-    <h1>hi, i'm Giorgio</h1>
+    <h1>hi, i'm [your name]</h1>
     
-    <p class="intro-sub">
-        side projects below were solo, no funding
+    <p class="subtitle">
+        product designer & independent developer
     </p>
 
     <h2>projects</h2>
 
     <ul>
-        <li>
-            <a href="#">your ios app name</a>
-            <ul class="project-details">
-                <li>built an ios app currently in testflight</li>
-                <li>successfully navigated the apple review process</li>
-                <li>[add another metric or detail here]</li>
+        <li class="project-item">
+            <a href="#" class="project-link">[app name] — ios app</a>
+            <ul class="details">
+                <li>designed and engineered a mobile platform for [what it does]</li>
+                <li>currently in private beta via testflight (apple review pending)</li>
+                <li>focused on [one key design feature, e.g., minimalist ux/gestural navigation]</li>
             </ul>
         </li>
-        <li>
-            <a href="#">youtube business</a>
-            <ul class="project-details">
-                <li>managed multiple channels with 300k+ subscribers</li>
-                <li>focused on [niche] and audience growth</li>
-                <li>scaled content strategy to [result]</li>
+
+        <li class="project-item">
+            <a href="#" class="project-link">content ecosystem & digital business</a>
+            <ul class="details">
+                <li>built and managed media channels reaching 300k+ subscribers</li>
+                <li>leveraged data analytics to optimize user engagement and retention</li>
+                <li>designed visual assets and branding for high-conversion performance</li>
             </ul>
         </li>
     </ul>
