@@ -26,8 +26,6 @@
             border-radius: 22%; /* iOS Squircle */
             object-fit: cover;
             display: inline-block;
-            
-            /* Smooth Transition Logic */
             transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
             transform-origin: center;
             position: relative;
@@ -50,7 +48,7 @@
             margin-bottom: 10px;
             letter-spacing: -0.02em;
             color: #000000;
-            min-height: 1.8rem; /* Prevents layout jump while typing */
+            min-height: 1.8rem;
         }
 
         /* Typing Animation Elements */
@@ -178,33 +176,39 @@
     </ul>
 
     <script>
-        const text = "hi, I'm Giorgio";
+        const textToType = "hi, I'm Giorgio";
         const target = document.getElementById('typewriter');
         let i = 0;
 
-        // 1. Extended "Thinking" state to exactly 1 second
+        // 1. Reverted "Thinking" state to 800ms
         setTimeout(() => {
             target.innerHTML = ''; 
             typeWriter();
-        }, 1000);
+        }, 800);
 
         function typeWriter() {
-            if (i < text.length) {
-                target.innerHTML += text.charAt(i);
+            if (i < textToType.length) {
+                target.innerHTML += textToType.charAt(i);
+                
+                // 2. Authenticity Logic:
+                // We slow down slightly for the comma and space, but keep letters fast.
+                let char = textToType.charAt(i);
+                let baseSpeed = (char === ',' || char === ' ') ? 180 : 55;
+                let variance = Math.random() * 60;
+                
                 i++;
-                let speed = Math.floor(Math.random() * 50) + 50; 
-                setTimeout(typeWriter, speed);
+                setTimeout(typeWriter, baseSpeed + variance);
             } else {
-                // 2. Add cursor
+                // 3. Add cursor after typing
                 target.innerHTML += '<span id="cursor">|</span>';
                 
-                // 3. Logic to remove cursor after exactly 5 blinks (5 seconds)
+                // 4. Set to exactly 8 blinks (8 seconds)
                 const cursorElement = document.getElementById('cursor');
                 setTimeout(() => {
                     if (cursorElement) {
                         cursorElement.style.display = 'none';
                     }
-                }, 5000); 
+                }, 8000); 
             }
         }
     </script>
