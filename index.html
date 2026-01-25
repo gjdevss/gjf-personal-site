@@ -7,10 +7,9 @@
     <style>
         /* Typography & Reset */
         body {
-            /* Using Mac-native system fonts for that clean developer look */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #666666; /* Softer Secondary Color as default */
+            color: #666666; 
             background-color: #ffffff;
             margin: 0;
             padding: 40px 60px 100px 60px;
@@ -24,11 +23,12 @@
             width: 1.1rem;
             vertical-align: text-bottom;
             margin-left: 6px;
-            border-radius: 22%; /* Correct iOS squircle-style rounding for all icons */
+            border-radius: 22%; /* The iOS Squircle */
             object-fit: cover;
+            display: inline-block;
         }
 
-        /* Intro Section - Bold Black */
+        /* Titles & Hierarchy */
         h1 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -43,7 +43,6 @@
             margin-bottom: 60px;
         }
 
-        /* Section Titles - Bold Black */
         h2 {
             font-size: 1.3rem;
             font-weight: 700;
@@ -53,7 +52,7 @@
         }
 
         ul {
-            list-style-type: disc; /* Main projects now have full bulletpoints */
+            list-style-type: disc;
             padding-left: 20px;
             margin: 0;
         }
@@ -62,7 +61,6 @@
             margin-bottom: 45px;
         }
 
-        /* Item Titles - Soft color */
         .item-title {
             color: #666666;
             font-weight: 400;
@@ -71,13 +69,11 @@
             margin-bottom: 8px;
         }
 
-        /* Links - Blue and underlined */
         .blue-link {
             color: #0000EE;
             text-decoration: underline;
         }
 
-        /* Detail lists - Descriptions now have empty bullets and soft color */
         .details {
             list-style-type: circle;
             margin-top: 8px;
@@ -90,14 +86,12 @@
             margin-bottom: 10px;
         }
 
-        /* Generic text sections (Life Goal) - Soft color */
         .text-content {
             font-size: 1.05rem;
             color: #666666;
             max-width: 700px;
         }
 
-        /* Connect alignment fix */
         .no-indent {
             list-style-type: none;
             padding-left: 0;
@@ -117,7 +111,7 @@
 
     <ul>
         <li class="item-container">
-            <span class="item-title">voky ai - master speaking (ios app) <img src="voky-logo.png" class="project-icon" alt="voky logo"></span>
+            <span class="item-title">voky ai - master speaking (ios app) <img src="voki-logo.png" class="project-icon" alt="voki logo"></span>
             <ul class="details">
                 <li>designed and engineered a native ios app that helps users improve their speaking skills & eloquence</li>
                 <li>leverages ai to analyze speech patterns and provide personalized improvement plans and coaching</li>
@@ -127,9 +121,9 @@
 
         <li class="item-container">
             <span class="item-title">media & content business 
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/91/9f/c0/919fc042-3e33-7221-871d-55124115f5e3/AppIcon-0-1x_U007emarketing-0-7-0-sRGB-85-220-0.png/230x0w.webp" class="project-icon" alt="yt icon"> 
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/71/61/52/716152cf-a78d-6395-9271-9231f133887c/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" class="project-icon" alt="ig icon"> 
-                <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/37/6c/40/376c4068-d653-703f-4e56-22442657e49e/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/230x0w.webp" class="project-icon" alt="tt icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="project-icon" alt="yt"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" class="project-icon" alt="ig"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/TikTok_logo.svg/1024px-TikTok_logo.svg.png" class="project-icon" alt="tt">
             </span>
             <ul class="details">
                 <li>built and scaled a profitable media business reaching 500k+ subscribers across youtube, instagram, and tiktok</li>
