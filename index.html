@@ -30,10 +30,9 @@
             transform-origin: center;
             position: relative;
             z-index: 1;
-            -webkit-tap-highlight-color: transparent; /* Clean tap for mobile */
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Desktop Hover - Remains Unchanged */
         @media (hover: hover) and (pointer: fine) {
             .project-icon:hover {
                 transform: scale(3.5); 
@@ -42,9 +41,8 @@
             }
         }
 
-        /* Mobile Active State - Triggered by JS */
         .project-icon.is-active {
-            transform: scale(2.2); /* Optimized for small screens */
+            transform: scale(2.2);
             z-index: 10;
         }
 
@@ -135,6 +133,15 @@
     <h1 id="typewriter"><span id="text-content"></span><span id="cursor" class="blinking">|</span></h1>
     <p class="subtitle">all projects below were solo & bootstrapped</p>
 
+    <h2>CV</h2>
+    <ul class="no-indent">
+        <li class="item-container">
+            <div class="text-content">
+                <a href="resume-port-page.pdf" target="_blank" class="blue-link">click here</a>
+            </div>
+        </li>
+    </ul>
+
     <h2>projects</h2>
     <ul>
         <li class="item-container">
@@ -176,7 +183,6 @@
     </ul>
 
     <script>
-        // --- TYPEWRITER LOGIC ---
         const textToType = "hi, I'm Giorgio";
         const textTarget = document.getElementById('text-content');
         const cursorElement = document.getElementById('cursor');
@@ -197,30 +203,26 @@
                 setTimeout(typeWriter, baseSpeed + variance);
             } else {
                 cursorElement.classList.add('blinking');
-                // Clean exit after 3 blinks
                 setTimeout(() => {
                     if (cursorElement) cursorElement.style.display = 'none';
                 }, 3000); 
             }
         }
 
-        // --- MOBILE ICON ENLARGE LOGIC ---
         const icons = document.querySelectorAll('.project-icon');
         
         icons.forEach(icon => {
             icon.addEventListener('click', (e) => {
                 e.stopPropagation();
-                // If it's already active, shrink it. If not, grow it.
                 if (icon.classList.contains('is-active')) {
                     icon.classList.remove('is-active');
                 } else {
-                    icons.forEach(i => i.classList.remove('is-active')); // Close others
+                    icons.forEach(i => i.classList.remove('is-active'));
                     icon.classList.add('is-active');
                 }
             });
         });
 
-        // Shrink icons on scroll or tap away
         const resetIcons = () => icons.forEach(i => i.classList.remove('is-active'));
         document.addEventListener('click', resetIcons);
         window.addEventListener('scroll', resetIcons);
